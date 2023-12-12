@@ -1,0 +1,6 @@
+Current model: RN50
+--------------------------------------------
+Best for Dataset: cifar10, Model: RN50, SuS Type: sd, Prompting strategy: cupl, alpha: 2.595, beta: 7.86, gamma: 0.1, TIP-X Accuracy: 73.66
+--------------------------------------------
+
+----------------------------------------------------------------------------

@@ -96,7 +96,8 @@ def main(args):
 			prompt = generate_prompt_array(args, class_name, batch_size, gpt3_prompts)
 			generator = torch.Generator("cuda").manual_seed(batch_ind) 
 			# generate support samples
-			images = pipe(prompt, guidance_scale=args.guidance_scale, num_inference_steps=args.num_inference_steps, generator=generator)['sample']
+			pipe = pipe.to("cuda")
+			images = pipe(prompt, guidance_scale=args.guidance_scale, num_inference_steps=args.num_inference_steps, generator=generator).images
 			for image_ind, img in enumerate(images):
 				img.save(os.path.join(stable_diff_gen_dir, save_folder, '{}_{}.JPEG'.format(batch_ind, image_ind)), 'JPEG')
 		print('Finished class {}: {}: {}'.format(start_index+ind, class_name, save_folder))

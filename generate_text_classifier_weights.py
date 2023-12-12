@@ -115,5 +115,4 @@ for model in req_models:
             print('Reading zeroshot weights from: '+wp.format(dataset, disp_name, prompt_type))
             zeroshot_weights = torch.load(wp.format(dataset, disp_name, prompt_type))
 
-        print(zeroshot_weights.shape)
         assert zeroshot_weights.shape[0]==feat_dims[args.backbone] and zeroshot_weights.shape[1]==num_classes, 'zeroshot_weights are not of dim CxN'

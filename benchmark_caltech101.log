@@ -1,0 +1,392 @@
+Load caltech101 data finished.
+Started class 0: face: face
+Finished class 0: face: face
+Started class 1: leopard: leopard
+Finished class 1: leopard: leopard
+Started class 2: motorbike: motorbike
+Finished class 2: motorbike: motorbike
+Started class 3: accordion: accordion
+Finished class 3: accordion: accordion
+Started class 4: airplane: airplane
+Finished class 4: airplane: airplane
+Started class 5: anchor: anchor
+Finished class 5: anchor: anchor
+Started class 6: ant: ant
+Finished class 6: ant: ant
+Started class 7: barrel: barrel
+Finished class 7: barrel: barrel
+Started class 8: bass: bass
+Finished class 8: bass: bass
+Started class 9: beaver: beaver
+Finished class 9: beaver: beaver
+Started class 10: binocular: binocular
+Finished class 10: binocular: binocular
+Started class 11: bonsai: bonsai
+Finished class 11: bonsai: bonsai
+Started class 12: brain: brain
+Finished class 12: brain: brain
+Started class 13: brontosaurus: brontosaurus
+Finished class 13: brontosaurus: brontosaurus
+Started class 14: buddha: buddha
+Finished class 14: buddha: buddha
+Started class 15: butterfly: butterfly
+Finished class 15: butterfly: butterfly
+Started class 16: camera: camera
+Finished class 16: camera: camera
+Started class 17: cannon: cannon
+Finished class 17: cannon: cannon
+Started class 18: car side: car side
+Finished class 18: car side: car side
+Started class 19: ceiling fan: ceiling fan
+Finished class 19: ceiling fan: ceiling fan
+Started class 20: cellphone: cellphone
+Finished class 20: cellphone: cellphone
+Started class 21: chair: chair
+Finished class 21: chair: chair
+Started class 22: chandelier: chandelier
+Finished class 22: chandelier: chandelier
+Started class 23: cougar body: cougar body
+Finished class 23: cougar body: cougar body
+Started class 24: cougar face: cougar face
+Finished class 24: cougar face: cougar face
+Started class 25: crab: crab
+Finished class 25: crab: crab
+Started class 26: crayfish: crayfish
+Finished class 26: crayfish: crayfish
+Started class 27: crocodile: crocodile
+Finished class 27: crocodile: crocodile
+Started class 28: crocodile head: crocodile head
+Finished class 28: crocodile head: crocodile head
+Started class 29: cup: cup
+Finished class 29: cup: cup
+Started class 30: dalmatian: dalmatian
+Finished class 30: dalmatian: dalmatian
+Started class 31: dollar bill: dollar bill
+Finished class 31: dollar bill: dollar bill
+Started class 32: dolphin: dolphin
+Finished class 32: dolphin: dolphin
+Started class 33: dragonfly: dragonfly
+Finished class 33: dragonfly: dragonfly
+Started class 34: electric guitar: electric guitar
+Finished class 34: electric guitar: electric guitar
+Started class 35: elephant: elephant
+Finished class 35: elephant: elephant
+Started class 36: emu: emu
+Finished class 36: emu: emu
+Started class 37: euphonium: euphonium
+Finished class 37: euphonium: euphonium
+Started class 38: ewer: ewer
+Finished class 38: ewer: ewer
+Started class 39: ferry: ferry
+Finished class 39: ferry: ferry
+Started class 40: flamingo: flamingo
+Finished class 40: flamingo: flamingo
+Started class 41: flamingo head: flamingo head
+Finished class 41: flamingo head: flamingo head
+Started class 42: garfield: garfield
+Finished class 42: garfield: garfield
+Started class 43: gerenuk: gerenuk
+Finished class 43: gerenuk: gerenuk
+Started class 44: gramophone: gramophone
+Finished class 44: gramophone: gramophone
+Started class 45: grand piano: grand piano
+Finished class 45: grand piano: grand piano
+Started class 46: hawksbill: hawksbill
+Finished class 46: hawksbill: hawksbill
+Started class 47: headphone: headphone
+Finished class 47: headphone: headphone
+Started class 48: hedgehog: hedgehog
+Finished class 48: hedgehog: hedgehog
+Started class 49: helicopter: helicopter
+Finished class 49: helicopter: helicopter
+Started class 50: ibis: ibis
+Finished class 50: ibis: ibis
+Started class 51: inline skate: inline skate
+Finished class 51: inline skate: inline skate
+Started class 52: joshua tree: joshua tree
+Finished class 52: joshua tree: joshua tree
+Started class 53: kangaroo: kangaroo
+Finished class 53: kangaroo: kangaroo
+Started class 54: ketch: ketch
+Finished class 54: ketch: ketch
+Started class 55: lamp: lamp
+Finished class 55: lamp: lamp
+Started class 56: laptop: laptop
+Finished class 56: laptop: laptop
+Started class 57: llama: llama
+Finished class 57: llama: llama
+Started class 58: lobster: lobster
+Finished class 58: lobster: lobster
+Started class 59: lotus: lotus
+Finished class 59: lotus: lotus
+Started class 60: mandolin: mandolin
+Finished class 60: mandolin: mandolin
+Started class 61: mayfly: mayfly
+Finished class 61: mayfly: mayfly
+Started class 62: menorah: menorah
+Finished class 62: menorah: menorah
+Started class 63: metronome: metronome
+Finished class 63: metronome: metronome
+Started class 64: minaret: minaret
+Finished class 64: minaret: minaret
+Started class 65: nautilus: nautilus
+Finished class 65: nautilus: nautilus
+Started class 66: octopus: octopus
+Finished class 66: octopus: octopus
+Started class 67: okapi: okapi
+Finished class 67: okapi: okapi
+Started class 68: pagoda: pagoda
+Finished class 68: pagoda: pagoda
+Started class 69: panda: panda
+Finished class 69: panda: panda
+Started class 70: pigeon: pigeon
+Finished class 70: pigeon: pigeon
+Started class 71: pizza: pizza
+Finished class 71: pizza: pizza
+Started class 72: platypus: platypus
+Finished class 72: platypus: platypus
+Started class 73: pyramid: pyramid
+Finished class 73: pyramid: pyramid
+Started class 74: revolver: revolver
+Finished class 74: revolver: revolver
+Started class 75: rhino: rhino
+Finished class 75: rhino: rhino
+Started class 76: rooster: rooster
+Finished class 76: rooster: rooster
+Started class 77: saxophone: saxophone
+Finished class 77: saxophone: saxophone
+Started class 78: schooner: schooner
+Finished class 78: schooner: schooner
+Started class 79: scissors: scissors
+Finished class 79: scissors: scissors
+Started class 80: scorpion: scorpion
+Finished class 80: scorpion: scorpion
+Started class 81: sea horse: sea horse
+Finished class 81: sea horse: sea horse
+Started class 82: snoopy: snoopy
+Finished class 82: snoopy: snoopy
+Started class 83: soccer ball: soccer ball
+Finished class 83: soccer ball: soccer ball
+Started class 84: stapler: stapler
+Finished class 84: stapler: stapler
+Started class 85: starfish: starfish
+Finished class 85: starfish: starfish
+Started class 86: stegosaurus: stegosaurus
+Finished class 86: stegosaurus: stegosaurus
+Started class 87: stop sign: stop sign
+Finished class 87: stop sign: stop sign
+Started class 88: strawberry: strawberry
+Finished class 88: strawberry: strawberry
+Started class 89: sunflower: sunflower
+Finished class 89: sunflower: sunflower
+Started class 90: tick: tick
+Finished class 90: tick: tick
+Started class 91: trilobite: trilobite
+Finished class 91: trilobite: trilobite
+Started class 92: umbrella: umbrella
+Finished class 92: umbrella: umbrella
+Started class 93: watch: watch
+Finished class 93: watch: watch
+Started class 94: water lilly: water lilly
+Finished class 94: water lilly: water lilly
+Started class 95: wheelchair: wheelchair
+Finished class 95: wheelchair: wheelchair
+Started class 96: wild cat: wild cat
+Finished class 96: wild cat: wild cat
+Started class 97: windsor chair: windsor chair
+Finished class 97: windsor chair: windsor chair
+Started class 98: wrench: wrench
+Finished class 98: wrench: wrench
+Started class 99: yin yang: yin yang
+Finished class 99: yin yang: yin yang
+Current model: RN50
+Model parameters: 102,007,137
+Input resolution: 224
+Context length: 77
+Vocab size: 49408
+Processing current dataset: caltech101
+start saving sus sd image features
+Augment time: 0 / 10
+Augment time: 1 / 10
+Augment time: 2 / 10
+Augment time: 3 / 10
+Augment time: 4 / 10
+Augment time: 5 / 10
+Augment time: 6 / 10
+Augment time: 7 / 10
+Augment time: 8 / 10
+Augment time: 9 / 10
+Storing features to: ./features/sus_sd_cupl_caltech101_f_mRN50.pt and ./features/sus_sd_cupl_caltech101_t_mRN50.pt
+Current model: RN101
+Model parameters: 119,688,033
+Input resolution: 224
+Context length: 77
+Vocab size: 49408
+Processing current dataset: caltech101
+start saving sus sd image features
+Augment time: 0 / 10
+Augment time: 1 / 10
+Augment time: 2 / 10
+Augment time: 3 / 10
+Augment time: 4 / 10
+Augment time: 5 / 10
+Augment time: 6 / 10
+Augment time: 7 / 10
+Augment time: 8 / 10
+Augment time: 9 / 10
+Storing features to: ./features/sus_sd_cupl_caltech101_f_mRN101.pt and ./features/sus_sd_cupl_caltech101_t_mRN101.pt
+Current model: ViT-B/32
+Model parameters: 151,277,313
+Input resolution: 224
+Context length: 77
+Vocab size: 49408
+Processing current dataset: caltech101
+start saving sus sd image features
+Augment time: 0 / 10
+Augment time: 1 / 10
+Augment time: 2 / 10
+Augment time: 3 / 10
+Augment time: 4 / 10
+Augment time: 5 / 10
+Augment time: 6 / 10
+Augment time: 7 / 10
+Augment time: 8 / 10
+Augment time: 9 / 10
+Storing features to: ./features/sus_sd_cupl_caltech101_f_mViT-B32.pt and ./features/sus_sd_cupl_caltech101_t_mViT-B32.pt
+Current model: ViT-B/16
+Model parameters: 149,620,737
+Input resolution: 224
+Context length: 77
+Vocab size: 49408
+Processing current dataset: caltech101
+start saving sus sd image features
+Augment time: 0 / 10
+Augment time: 1 / 10
+Augment time: 2 / 10
+Augment time: 3 / 10
+Augment time: 4 / 10
+Augment time: 5 / 10
+Augment time: 6 / 10
+Augment time: 7 / 10
+Augment time: 8 / 10
+Augment time: 9 / 10
+Storing features to: ./features/sus_sd_cupl_caltech101_f_mViT-B16.pt and ./features/sus_sd_cupl_caltech101_t_mViT-B16.pt
+Current model: ViT-L/14
+Model parameters: 427,616,513
+Input resolution: 224
+Context length: 77
+Vocab size: 49408
+Processing current dataset: caltech101
+start saving sus sd image features
+Augment time: 0 / 10
+Augment time: 1 / 10
+Augment time: 2 / 10
+Augment time: 3 / 10
+Augment time: 4 / 10
+Augment time: 5 / 10
+Augment time: 6 / 10
+Augment time: 7 / 10
+Augment time: 8 / 10
+Augment time: 9 / 10
+Storing features to: ./features/sus_sd_cupl_caltech101_f_mViT-L14.pt and ./features/sus_sd_cupl_caltech101_t_mViT-L14.pt
+Load caltech101 data finished.
+Current dataset caltech101, model RN50 and prompt type ensemble
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mRN50_ptensemble.pt
+torch.Size([1024, 100])
+Current dataset caltech101, model RN50 and prompt type small
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mRN50_ptsmall.pt
+torch.Size([1024, 100])
+Current dataset caltech101, model RN50 and prompt type origami
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mRN50_ptorigami.pt
+torch.Size([1024, 100])
+Current dataset caltech101, model RN50 and prompt type lowres
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mRN50_ptlowres.pt
+torch.Size([1024, 100])
+Current dataset caltech101, model RN50 and prompt type class_name
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mRN50_ptclass_name.pt
+torch.Size([1024, 100])
+Current dataset caltech101, model RN50 and prompt type itap
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mRN50_ptitap.pt
+torch.Size([1024, 100])
+Load caltech101 data finished.
+Current dataset caltech101, model RN101 and prompt type ensemble
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mRN101_ptensemble.pt
+torch.Size([512, 100])
+Current dataset caltech101, model RN101 and prompt type small
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mRN101_ptsmall.pt
+torch.Size([512, 100])
+Current dataset caltech101, model RN101 and prompt type origami
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mRN101_ptorigami.pt
+torch.Size([512, 100])
+Current dataset caltech101, model RN101 and prompt type lowres
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mRN101_ptlowres.pt
+torch.Size([512, 100])
+Current dataset caltech101, model RN101 and prompt type class_name
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mRN101_ptclass_name.pt
+torch.Size([512, 100])
+Current dataset caltech101, model RN101 and prompt type itap
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mRN101_ptitap.pt
+torch.Size([512, 100])
+Load caltech101 data finished.
+Current dataset caltech101, model ViT-B/32 and prompt type ensemble
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-B32_ptensemble.pt
+torch.Size([512, 100])
+Current dataset caltech101, model ViT-B/32 and prompt type small
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-B32_ptsmall.pt
+torch.Size([512, 100])
+Current dataset caltech101, model ViT-B/32 and prompt type origami
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-B32_ptorigami.pt
+torch.Size([512, 100])
+Current dataset caltech101, model ViT-B/32 and prompt type lowres
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-B32_ptlowres.pt
+torch.Size([512, 100])
+Current dataset caltech101, model ViT-B/32 and prompt type class_name
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-B32_ptclass_name.pt
+torch.Size([512, 100])
+Current dataset caltech101, model ViT-B/32 and prompt type itap
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-B32_ptitap.pt
+torch.Size([512, 100])
+Load caltech101 data finished.
+Current dataset caltech101, model ViT-B/16 and prompt type ensemble
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-B16_ptensemble.pt
+torch.Size([512, 100])
+Current dataset caltech101, model ViT-B/16 and prompt type small
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-B16_ptsmall.pt
+torch.Size([512, 100])
+Current dataset caltech101, model ViT-B/16 and prompt type origami
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-B16_ptorigami.pt
+torch.Size([512, 100])
+Current dataset caltech101, model ViT-B/16 and prompt type lowres
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-B16_ptlowres.pt
+torch.Size([512, 100])
+Current dataset caltech101, model ViT-B/16 and prompt type class_name
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-B16_ptclass_name.pt
+torch.Size([512, 100])
+Current dataset caltech101, model ViT-B/16 and prompt type itap
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-B16_ptitap.pt
+torch.Size([512, 100])
+Load caltech101 data finished.
+Current dataset caltech101, model ViT-L/14 and prompt type ensemble
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-L14_ptensemble.pt
+torch.Size([768, 100])
+Current dataset caltech101, model ViT-L/14 and prompt type small
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-L14_ptsmall.pt
+torch.Size([768, 100])
+Current dataset caltech101, model ViT-L/14 and prompt type origami
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-L14_ptorigami.pt
+torch.Size([768, 100])
+Current dataset caltech101, model ViT-L/14 and prompt type lowres
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-L14_ptlowres.pt
+torch.Size([768, 100])
+Current dataset caltech101, model ViT-L/14 and prompt type class_name
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-L14_ptclass_name.pt
+torch.Size([768, 100])
+Current dataset caltech101, model ViT-L/14 and prompt type itap
+Storing zeroshot weights to: ./features/caltech101_zeroshot_text_weights_mViT-L14_ptitap.pt
+torch.Size([768, 100])
+Current model: RN50
+--------------------------------------------
+Best for Dataset: caltech101, Model: RN50, SuS Type: sd, Prompting strategy: cupl, alpha: 0.1, beta: 27.705, gamma: 0.1, TIP-X Accuracy: 85.5578093306288
+--------------------------------------------
+
+----------------------------------------------------------------------------

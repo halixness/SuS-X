@@ -140,6 +140,7 @@ if __name__ == '__main__':
     parser.add_argument('--prompt_shorthand', type=str, default='photo')
     parser.add_argument('--sus_type', type=str, default='lc')
     parser.add_argument('--text_prompt_type', type=str, default='combined')
+    parser.add_argument('--support_set_type', type=str, default='sd', choices=['sd', 'k1', 'k2', 'k4', 'k8', 'k16'])
     args = parser.parse_args()
 
     # dummy parameters for dataloader
@@ -185,8 +186,12 @@ if __name__ == '__main__':
         test_features_path = features_path+"/{}_f_test_m{}.pt".format(dataset, disp_name)
         test_targets_path = features_path+"/{}_t_test_m{}.pt".format(dataset, disp_name)
 
-        support_features_path = os.path.join(features_path, 'sus_{}_{}_{}_f_m{}.pt'.format(args.sus_type, args.prompt_shorthand, dataset, disp_name))
-        support_labels_path = os.path.join(features_path, 'sus_{}_{}_{}_t_m{}.pt'.format(args.sus_type, args.prompt_shorthand, dataset, disp_name))
+        if args.support_set_type == "sd":
+            support_features_path = os.path.join(features_path, 'sus_{}_{}_{}_f_m{}.pt'.format(args.sus_type, args.prompt_shorthand, dataset, disp_name))
+            support_labels_path = os.path.join(features_path, 'sus_{}_{}_{}_t_m{}.pt'.format(args.sus_type, args.prompt_shorthand, dataset, disp_name))
+        else:
+            support_features_path = os.path.join(features_path, '{}_f_train_m{}_{}.pt'.format(dataset, disp_name, args.support_set_type))
+            support_labels_path = os.path.join(features_path, '{}_t_train_m{}_{}.pt'.format(dataset, disp_name, args.support_set_type))
 
         text_classifier_weights_path = os.path.join(features_path, "{}_zeroshot_text_weights_m{}_pt{}.pt".format(dataset, disp_name, args.text_prompt_type))
 
