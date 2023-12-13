@@ -290,6 +290,8 @@ def get_num_classes(dataset):
         return 10
     elif(dataset=='cifar100'):
         return 100
+    elif('domainnet' in dataset):
+        return 345
 
 if __name__ == '__main__':
     print(imagenet_class_to_synset('tights'))

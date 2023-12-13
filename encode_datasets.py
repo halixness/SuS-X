@@ -59,14 +59,16 @@ for shot in req_shots:
 
         features_path = "./features"
 
-        val_features_path = features_path+"/{}_f_val_m{}.pt".format(args.dataset, disp_name)
-        val_targets_path = features_path+"/{}_t_val_m{}.pt".format(args.dataset, disp_name)
+        dataset = args.dataset.replace("domainnet_", "")
 
-        test_features_path = features_path+"/{}_f_test_m{}.pt".format(args.dataset, disp_name)
-        test_targets_path = features_path+"/{}_t_test_m{}.pt".format(args.dataset, disp_name)
+        val_features_path = features_path+"/{}_f_val_m{}.pt".format(dataset, disp_name)
+        val_targets_path = features_path+"/{}_t_val_m{}.pt".format(dataset, disp_name)
 
-        train_features_path = features_path+"/{}_f_train_m{}_k{}.pt".format(args.dataset, disp_name, args.k_shot)
-        train_targets_path = features_path+"/{}_t_train_m{}_k{}.pt".format(args.dataset, disp_name, args.k_shot)
+        test_features_path = features_path+"/{}_f_test_m{}.pt".format(dataset, disp_name)
+        test_targets_path = features_path+"/{}_t_test_m{}.pt".format(dataset, disp_name)
+
+        train_features_path = features_path+"/{}_f_train_m{}_k{}.pt".format(dataset, disp_name, args.k_shot)
+        train_targets_path = features_path+"/{}_t_train_m{}_k{}.pt".format(dataset, disp_name, args.k_shot)
 
         if(os.path.exists(train_features_path) and os.path.exists(train_targets_path)):
             load_train = True
@@ -85,7 +87,7 @@ for shot in req_shots:
 
         # load few shot dataset
         train_images, train_loader, train_loader_shuffle, val_images, val_loader, test_images, test_loader, num_classes, string_classnames = KShotDataLoader(args, preprocess).load_dataset()
-        assert num_classes == utils.get_num_classes(args.dataset), 'Num classes for '+args.dataset+' not correct'
+        assert num_classes == utils.get_num_classes(args.dataset), 'Num classes for ' + dataset + ' not correct'
 
         # ------------------------------------------saving val features------------------------------------------
         print('start saving val image features')

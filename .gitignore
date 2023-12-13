@@ -3,3 +3,4 @@ features
 */__MACOSX
 data
 env
+*.log

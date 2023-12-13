@@ -102,6 +102,7 @@ class KShotDataLoader():
         unique_classnames.sort(key=lambda x: x[0])
         unique_classnames = [u[1] for u in unique_classnames]
 
+        print(len(unique_classnames))
         assert len(unique_classnames) == utils.get_num_classes(self.args.dataset), 'Total num classes is not correct'
         assert len(unique_classes) == utils.get_num_classes(self.args.dataset), 'Total num classes is not correct'
 
@@ -146,6 +147,8 @@ class KShotDataLoader():
             return self.cifar10_load()
         elif(self.args.dataset == 'cifar100'):
             return self.cifar100_load()
+        elif("domainnet" in self.args.dataset):
+            return self.custom_load()
         else:
             raise ValueError('Dataset not supported')
 
@@ -402,7 +405,12 @@ class KShotDataLoader():
             root_data_dir = os.path.join(self.dataset_path, 'images')
         elif(self.args.dataset == 'food101'):
             json_path = os.path.join(self.dataset_path, 'split_zhou_Food101.json')
-            root_data_dir = os.path.join(self.dataset_path, 'images')            
+            root_data_dir = os.path.join(self.dataset_path, 'images')   
+        elif('domainnet' in self.args.dataset):
+            subset = self.args.dataset.split("_")[1]
+            self.dataset_path = DATASET_PATH.format(self.args.dataset.replace("domainnet_", ""))
+            json_path = os.path.join(self.dataset_path, f"split_{subset}.json")
+            root_data_dir = os.path.join(self.dataset_path)   
         else:
             raise ValueError("Dataset not supported")
 
