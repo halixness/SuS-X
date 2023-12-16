@@ -30,7 +30,7 @@ random.seed(1)
 torch.manual_seed(1)
 
 req_models = ['RN50', 'RN101', 'ViT-B/32', 'ViT-B/16', 'ViT-L/14']
-req_shots = [1, 2, 4, 8, 16]
+req_shots = [1, 2, 4, 8]
 
 for shot in req_shots:
     for model_name in req_models:
