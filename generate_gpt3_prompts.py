@@ -74,8 +74,10 @@ for ind, category in tqdm(enumerate(category_list)):
 
 	all_result = []
 	prompt_id = 0
+	requests = 0
 	while(prompt_id<len(prompts)):
 		curr_prompt = prompts[prompt_id]
+		"""
 		try:
 			# parameters taken directly from CuPL paper
 			response = openai.Completion.create(
@@ -103,6 +105,9 @@ for ind, category in tqdm(enumerate(category_list)):
 		except openai.error.RateLimitError as e:
 			# if we hit rate limit, retry for same prompt again
 			pass
+		"""
+		requests += 1
+	print(f"Requests: {requests}")
 
 	all_responses[category] = all_result
 	# sleep to ensure no timeout error

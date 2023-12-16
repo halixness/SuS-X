@@ -144,8 +144,14 @@ PHOTO_PROMPTS = {
 	'sun397': "A photo of a {}.",
 	'dtd': "{} texture.",
 	'eurosat': "A centered satellite photo of {}.",
-	'ucf101': "A photo of a person doing {}."
+	'ucf101': "A photo of a person doing {}.",
+	'domainnet_clipart': "A drawing of {}.",
+	'domainnet_infograph': "An infograph of {}.",
+	'domainnet_quickdrawing': "A quickdrawing of {}.",
+	'domainnet_real': "A photo of {}.",
+	'domainnet_sketch': "A sketch of {}.",
+	'domainnet_painting': "A painting of {}."
 }
 
 def return_photo_prompts(dataset):
-    return PHOTO_PROMPTS[dataset]
+	return PHOTO_PROMPTS[dataset]

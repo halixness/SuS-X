@@ -4,3 +4,4 @@ features
 data
 env
 *.log
+__pycache__

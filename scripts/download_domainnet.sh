@@ -18,9 +18,3 @@ wget -P data/ http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/real_t
 wget -P data/ http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/real_test.txt
 wget -P data/ http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/sketch_train.txt
 wget -P data/ http://csr.bu.edu/ftp/visda/2019/multi-source/domainnet/txt/sketch_test.txt
-python generate_splits.py --dataset clipart
-python generate_splits.py --dataset infograph
-python generate_splits.py --dataset painting
-python generate_splits.py --dataset quickdraw
-python generate_splits.py --dataset real
-python generate_splits.py --dataset sketch
