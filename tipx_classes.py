@@ -136,6 +136,15 @@ def hparam_search(val_features, val_labels, test_features, test_labels, train_im
         tipx_top5 = (tipx_top5 / n) * 100
         class_scores.append(tipx_top1)
 
+    # Overall scores
+    tipx_top1, tipx_top5 = 0., 0.
+    n = test_features.size(0)
+    tipx_acc1, tipx_acc5 = accuracy(tipx_logits, test_labels, topk=(1, 5))
+    tipx_top1 += tipx_acc1
+    tipx_top5 += tipx_acc5
+    tipx_top1 = (tipx_top1 / n) * 100
+    tipx_top5 = (tipx_top5 / n) * 100
+
     return class_scores, tipx_top1, best_alpha_tipx, best_beta_tipx, best_gamma_tipx
 
 if __name__ == '__main__':

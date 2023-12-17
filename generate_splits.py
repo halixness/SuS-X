@@ -12,6 +12,7 @@ test_labels_txt = os.path.join("data", f"{args.dataset}_test.txt")
 dataset = {"train": [], "val": [], "test": []}
 
 def read_splitfile(path:str, dataset:dict, split:str):
+    classes = dict()
     with open(path, "r") as f:
         lines = f.readlines()
         for l in tqdm(lines):
@@ -19,6 +20,10 @@ def read_splitfile(path:str, dataset:dict, split:str):
             classname = path.split("/")[1]
             path = "/".join(path.split("/")[1:])
             dataset[split].append([path, label, classname])
+            classes[label] = classname
+    classprints = [c[1] for c in sorted(classes.items())]
+    for c in classprints: print(c)
+    exit()
 
 read_splitfile(train_labels_txt, dataset, "train")
 read_splitfile(test_labels_txt, dataset, "test")
