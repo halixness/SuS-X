@@ -1,19 +1,15 @@
 promptStrategy=photo
 HFKEY=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
-nSupportImages=25 # batch size is 5, it must be higher
+nSupportImages=4 # batch size is 5, it must be higher
+batchSize=2
+inferenceSteps=20
 visualBackbone=RN50
 
-# Diego
-python generate_sd_sus.py --dataset domainnet_clipart --num_images $nSupportImages --prompt_shorthand $promptStrategy --huggingface_key $HFKEY --batch_size 3
-python generate_sd_sus.py --dataset domainnet_infograph --num_images $nSupportImages --prompt_shorthand $promptStrategy --huggingface_key $HFKEY --batch_size 3
-
-# Egidia
-python generate_sd_sus.py --dataset domainnet_sketch --num_images $nSupportImages --prompt_shorthand $promptStrategy --huggingface_key $HFKEY --batch_size 3
-python generate_sd_sus.py --dataset domainnet_quickdraw --num_images $nSupportImages --prompt_shorthand $promptStrategy --huggingface_key $HFKEY --batch_size 3
-
-# Chris
-python generate_sd_sus.py --dataset domainnet_real --num_images $nSupportImages --prompt_shorthand $promptStrategy --huggingface_key $HFKEY --batch_size 3
-python generate_sd_sus.py --dataset domainnet_painting --num_images $nSupportImages --prompt_shorthand $promptStrategy --huggingface_key $HFKEY --batch_size 3
+python encode_datasets.py --dataset $dataset
+python generate_sd_sus.py --dataset $1 --num_images $nSupportImages --prompt_shorthand $promptStrategy --huggingface_key $HFKEY --batch_size $batchSize --num_inference_steps $inferenceSteps
+python encode_sus_sd.py --dataset $1 --prompt_shorthand $promptStrategy
+python generate_text_classifier_weights.py --dataset $1
+python tipx.py --dataset $1 --backbone $visualBackbone --prompt_shorthand $promptStrategy --text_prompt_type ensemble --sus_type sd > benchmark_sussd_$1.log
 
 # ---- SuS-SD
 # generate support set
@@ -22,7 +18,7 @@ python generate_sd_sus.py --dataset domainnet_painting --num_images $nSupportIma
 # encode dataset features
 # python encode_sus_sd.py --dataset $dataset --prompt_shorthand $promptStrategy
 # inference
-# python generate_text_classifier_weights.py --dataset $dataset
+# 
 # python tipx.py --dataset $dataset --backbone $visualBackbone --prompt_shorthand $promptStrategy --text_prompt_type ensemble --sus_type sd > benchmark_sussd_$dataset.log
 # python encode_datasets.py --dataset $dataset
 # python tipx.py --dataset $dataset --backbone $visualBackbone --prompt_shorthand $promptStrategy --text_prompt_type ensemble --sus_type sd --support_set_type k1
