@@ -53,8 +53,8 @@ def get_kl_div_sims(args, test_features, val_features, train_features, clip_weig
     return train_kl_divs_sim, test_kl_divs_sim, val_kl_divs_sim
 
 def accuracy(output, target, topk=(1,)):
-    pred = output.topk(max(topk), 1, True, True)[1].t()
-    correct = pred.eq(target.view(1, -1).expand_as(pred))
+    pred = output.topk(max(topk), 1, True, True)[1].t() # N, C => N, K 
+    correct = pred.eq(target.view(1, -1).expand_as(pred)) # N, K
     return [float(correct[:k].reshape(-1).float().sum(0, keepdim=True).cpu().numpy()) for k in topk]
 
 def scale_(x, target):
@@ -64,29 +64,6 @@ def scale_(x, target):
     y += target.min()
     
     return y
-
-def fixed_params_get_tipx_acc(alpha, beta, gamma, val_features, val_labels, test_features, test_labels, train_images_features_agg, train_images_targets, zeroshot_weights, val_kl_divs_sim, test_kl_divs_sim):
-
-    best_tipx_acc = 0 
-    best_gamma_tipx, best_alpha_tipx, best_beta_tipx = 0, 0, 0
-    
-    new_knowledge = val_features @ train_images_features_agg
-    clip_logits = 100. * test_features @ zeroshot_weights
-
-    neg_affs = scale_((test_kl_divs_sim).cuda(), new_knowledge)
-    affinities = -neg_affs
-    kl_logits = affinities.half() @ train_images_targets
-
-    tipx_top1, tipx_top5 = 0., 0.
-
-    new_knowledge = test_features @ train_images_features_agg
-    cache_logits = ((-1) * (best_beta_tipx - best_beta_tipx * new_knowledge)).exp() @ train_images_targets    
-    tipx_logits = clip_logits + kl_logits * best_gamma_tipx + cache_logits * best_alpha_tipx
-    tipx_acc1, tipx_acc5 = accuracy(tipx_logits, test_labels, topk=(1, 5))
-    tipx_top1 = tipx_acc1
-    tipx_top5 = tipx_acc5
-
-    return tipx_top1, best_alpha_tipx, best_beta_tipx, best_gamma_tipx
 
 def hparam_search(val_features, val_labels, test_features, test_labels, train_images_features_agg, train_images_targets, zeroshot_weights, val_kl_divs_sim, test_kl_divs_sim):
 
@@ -134,25 +111,32 @@ def hparam_search(val_features, val_labels, test_features, test_labels, train_im
                     best_beta_tipx = beta
 
     n = test_features.size(0)
-
     clip_logits = 100. * test_features @ zeroshot_weights
 
     neg_affs = scale_((test_kl_divs_sim).cuda(), new_knowledge)
     affinities = -neg_affs
     kl_logits = affinities.half() @ train_images_targets
 
-    tipx_top1, tipx_top5 = 0., 0.
-
     new_knowledge = test_features @ train_images_features_agg
     cache_logits = ((-1) * (best_beta_tipx - best_beta_tipx * new_knowledge)).exp() @ train_images_targets    
     tipx_logits = clip_logits + kl_logits * best_gamma_tipx + cache_logits * best_alpha_tipx
-    tipx_acc1, tipx_acc5 = accuracy(tipx_logits, test_labels, topk=(1, 5))
-    tipx_top1 += tipx_acc1
-    tipx_top5 += tipx_acc5
-    tipx_top1 = (tipx_top1 / n) * 100
-    tipx_top5 = (tipx_top5 / n) * 100
 
-    return tipx_top1, best_alpha_tipx, best_beta_tipx, best_gamma_tipx
+    # Per class evaluation (based on test labels)
+    class_scores = []
+    for label in torch.unique(test_labels).tolist():
+        tipx_top1, tipx_top5 = 0., 0.
+        mask = (test_labels == label)
+        class_logits = tipx_logits[mask]
+        class_labels = test_labels[mask]
+        n = class_logits.size(0)
+        tipx_acc1, tipx_acc5 = accuracy(class_logits, class_labels, topk=(1, 5))
+        tipx_top1 += tipx_acc1
+        tipx_top5 += tipx_acc5
+        tipx_top1 = (tipx_top1 / n) * 100
+        tipx_top5 = (tipx_top5 / n) * 100
+        class_scores.append(tipx_top1)
+
+    return class_scores, tipx_top1, best_alpha_tipx, best_beta_tipx, best_gamma_tipx
 
 if __name__ == '__main__':
 
@@ -219,34 +203,30 @@ if __name__ == '__main__':
         text_classifier_weights_path = os.path.join(features_path, "{}_zeroshot_text_weights_m{}_pt{}.pt".format(dataset, disp_name, args.text_prompt_type))
 
         # dim nxC
-        all_val_features = torch.load(val_features_path)
+        val_features = torch.load(val_features_path)
         # dim n
-        all_val_labels = torch.load(val_targets_path)
+        val_labels = torch.load(val_targets_path)
 
         # dim nxC 
-        all_test_features = torch.load(test_features_path)
+        test_features = torch.load(test_features_path)
         # dim n
-        all_test_labels = torch.load(test_targets_path)
+        test_labels = torch.load(test_targets_path)
 
         # dim nxC
-        all_support_features = torch.load(support_features_path)
+        support_features = torch.load(support_features_path)
         # dim n
-        all_support_labels = torch.load(support_labels_path)
+        support_labels = torch.load(support_labels_path)
 
         text_classifier_weights = torch.load(text_classifier_weights_path)
 
-        for label in torch.unique(all_test_labels).tolist():
-            test_labels = all_test_labels
-            test_features = torch.stack([t for idx, t in enumerate(all_test_features) if all_test_labels[idx] == label]).to(test_labels.get_device())
-            support_labels = all_support_labels[all_support_labels==label]
-            support_features = torch.stack([t for idx, t in enumerate(all_support_features) if all_support_labels[idx] == label]).to(test_labels.get_device())
-            val_labels = None
-            val_features = torch.stack([t for idx, t in enumerate(all_val_features) if all_val_features[idx] == label]).to(test_labels.get_device())
+        train_kl_divs_sims, test_kl_divs_sims, val_kl_divs_sims = get_kl_div_sims(args, test_features, val_features, support_features, text_classifier_weights)
 
-            print(test_features.shape, test_labels.shape)
+        class_scores, tipx_acc, best_alpha_tipx, best_beta_tipx, best_gamma_tipx = hparam_search(val_features, val_labels, test_features, test_labels, support_features, support_labels, text_classifier_weights, val_kl_divs_sims, test_kl_divs_sims)
 
-            train_kl_divs_sims, test_kl_divs_sims, val_kl_divs_sims = get_kl_div_sims(args, test_features, val_features, support_features, text_classifier_weights)
-            alpha, beta, gamma = [0.1, 4.43, 0.1]
-            tipx_acc, best_alpha_tipx, best_beta_tipx, best_gamma_tipx = fixed_params_get_tipx_acc(alpha, beta, gamma, val_features, val_labels, test_features, test_labels, support_features, support_labels, text_classifier_weights, val_kl_divs_sims, test_kl_divs_sims)
-
-            print(f"Class: {label}, TIP-X Accuracy: {tipx_acc}")
+        # plotting
+        print(best_alpha_tipx)
+        print(best_beta_tipx)
+        print(best_gamma_tipx)
+        for s in class_scores: print(s)
+        print(tipx_acc)
+        
