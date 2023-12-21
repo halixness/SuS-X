@@ -2,6 +2,11 @@
 
 Official code for the ICCV'23 paper ["SuS-X: Training-Free Name-Only Transfer of Vision-Language Models"](https://vishaal27.github.io/SuS-X-webpage/). Authors: [Vishaal Udandarao](http://vishaal27.github.io/), [Ankush Gupta](https://ankushgupta.org/) and [Samuel Albanie](http://samuelalbanie.com/).
 
+## About this fork
+In this repo we introduce some changes to further evaluate SuS-X especially for Domain Adaptation:
+- [Code adaptation](https://github.com/halixness/SuS-X/blob/68ea1e91a9d866ecd77f7394f54609a51a495617/dataloader.py#L409) to use run evals on [DomainNet](http://ai.bu.edu/M3SDA/)
+- [Modifications](https://github.com/halixness/SuS-X/blob/68ea1e91a9d866ecd77f7394f54609a51a495617/tipx.py#L143C28-L143C44) to evaluate SuS-X with few shot learning (K-shots)
+
 ## Introduction
 Contrastive Language-Image Pre-training (CLIP) has emerged as a simple yet effective way to train large-scale vision-language models. CLIP demonstrates impressive zero-shot classification and retrieval on diverse downstream tasks. However, to leverage its full potential, fine-tuning still appears to be necessary. Fine-tuning the entire CLIP model can be resource-intensive and unstable. Moreover, recent methods that aim to circumvent this need for
 fine-tuning still require access to images from the target distribution. We pursue a different approach and explore the regime of training-free "name-only transfer" in which the only knowledge we possess about the downstream task comprises the names of downstream target categories. We propose a novel method, SuS-X, consisting of two key building blocks: "SuS" and "TIP-X", that requires neither intensive fine-tuning nor costly labelled data. SuS-X achieves state-of-the-art zero-shot classification results on 19 benchmark datasets. We further show the utility of TIP-X in the training-free few-shot setting, where we again achieve state-of-the-art results over strong training-free baselines.
