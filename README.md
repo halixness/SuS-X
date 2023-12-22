@@ -6,6 +6,7 @@ Official code for the ICCV'23 paper ["SuS-X: Training-Free Name-Only Transfer of
 In this repo we introduce some changes to further evaluate SuS-X especially for Domain Adaptation:
 - [Code adaptation](https://github.com/halixness/SuS-X/blob/68ea1e91a9d866ecd77f7394f54609a51a495617/dataloader.py#L409) to use run evals on [DomainNet](http://ai.bu.edu/M3SDA/)
 - [Modifications](https://github.com/halixness/SuS-X/blob/68ea1e91a9d866ecd77f7394f54609a51a495617/tipx.py#L143C28-L143C44) to evaluate SuS-X with few shot learning (K-shots)
+- [Per-class](https://github.com/halixness/SuS-X/blob/main/tipx_classes.py) valuation across distribution shifts with [DomainNet](http://ai.bu.edu/M3SDA/)
 
 ## Introduction
 Contrastive Language-Image Pre-training (CLIP) has emerged as a simple yet effective way to train large-scale vision-language models. CLIP demonstrates impressive zero-shot classification and retrieval on diverse downstream tasks. However, to leverage its full potential, fine-tuning still appears to be necessary. Fine-tuning the entire CLIP model can be resource-intensive and unstable. Moreover, recent methods that aim to circumvent this need for
@@ -140,6 +141,22 @@ python tipx.py --dataset <dataset> --backbone <CLIP_visual_backbone> --prompt_sh
 ```
 The `sus_type` parameter is `lc` for SuS-LC and `sd` for SuS-SD.
 
+### Few-shot inference
+It is possible to run evals with a support set composed by few samples from the target distribution. To achieve this, set `sus_type` to a parameter in `[sd, lc, k1, k2, k4, k8, k16]`.
+```
+python tipx.py --dataset <dataset> --backbone <visualBackbone> --prompt_shorthand <promptStrategy> --sus_type <mode>
+```
+
+### DomainNet evaluation
+Firstly you need to download the zip files from [here](http://ai.bu.edu/M3SDA/) (cleaned version) and extract them under `data/`. Please include the annotation `.txt` files under the subset folder, e.g. `data/clipart/clipart_train.txt`. You will need to generate the splits `.json` file like the other datasets (don't put the "domainnet_" prefix here):
+```
+python generate_splits.py --dataset clipart
+```
+Encoding the dataset features and generating a support set with stable diffusion is achievable in the same way as originally defined in this repo. Pipeline scripts can be found under `scripts/run_*`.
+Subsets with different domains can be tested by setting `dataset` to one of the following: `[domainnet_sketch, domainnet_quickdraw, domainnet_infograph, domainnet_real, domainnet_clipart]`.
+```
+python tipx.py --dataset <dataset> --backbone <visualBackbone> --prompt_shorthand <promptStrategy> --sus_type <mode>
+```
 ## Citation
 If you found this work useful, please consider citing it as:
 ```
